@@ -28,7 +28,7 @@ export default function Home() {
     ${showContent ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
     ${showContent ? "delay-[1200ms]" : ""}`}
         >
-          <Link href="#">
+          <Link href="/about">
             <button
               className={`
       relative font-mono font-semibold text-2xl py-4 px-8 
