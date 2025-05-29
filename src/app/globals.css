@@ -89,3 +89,62 @@ body {
 .animate-zoomIn {
   animation: zoomIn 0.5s ease-out;
 }
+
+@keyframes expandToFill {
+  0% {
+    transform: scale(0.1); /* Start small, as if from the button's position */
+    opacity: 0; /* Start transparent */
+    border-radius: 0.5rem; /* Match button's rounded-lg */
+  }
+  50% {
+    transform: scale(1.2); /* Overshoot slightly for a bounce effect */
+    opacity: 1;
+    border-radius: 0.25rem;
+  }
+  100% {
+    transform: scale(1); /* End at full size */
+    opacity: 1;
+    border-radius: 0; /* Square corners when full screen */
+  }
+}
+
+.animate-expandToFill {
+  animation: expandToFill 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* 'forwards' keeps the 100% state */
+}
+
+/* Animation for the text within the expanding div to fade out */
+@keyframes fadeOutText {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+.animate-fadeOutText {
+  animation: fadeOutText 0.5s ease-out forwards;
+  animation-delay: 0.1s; /* Start fading text slightly after expansion begins */
+}
+
+@keyframes fadeInContent {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInContent {
+  animation: fadeInContent 0.5s ease-out forwards;
+  animation-delay: 0.2s; /* Slight delay to ensure blue background is established */
+}
